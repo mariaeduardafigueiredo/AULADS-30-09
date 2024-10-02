@@ -1,0 +1,52 @@
+{% extends "global/index.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="container justify-content-center mt-4">
+    <form action="{% url 'listar_usuarios' %}" method="get">
+        <div class="form-group">
+            <label class="form-label" for="nome">Nome:</label>
+            <input class="form-control" type="text" name="nome" id="nome">
+        </div>
+
+        <input class="btn btn-primary mt-3" type="submit" value="Pesquisar">
+    </form>
+</div>
+
+{% if lista_usuarios %}
+
+<div class="container mt-3">
+    <h1 class="text-center">Listar Usuários</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in lista_usuarios %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.nome }}</td>
+                <td>{{ item.idade }}</td>
+                <td>
+                    <a class="btn btn-danger" href="/deletar/{{ item.id }}">Deletar</a>
+                    <a class="btn btn-warning" href="/atualizar/{{ item.id }}">Atualizar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+
+<div class="container mt-3">
+    <p class="text-center h2">Nenhum registro encontrado</p>
+</div>
+{% endif %}
+
+{% endblock content %}

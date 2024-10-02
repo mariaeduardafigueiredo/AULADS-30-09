@@ -1,0 +1,5 @@
+*pycache*
+*.sqlite3
+*.db
+
+.env
