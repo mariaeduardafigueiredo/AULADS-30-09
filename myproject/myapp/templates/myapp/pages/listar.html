@@ -14,8 +14,6 @@
     </form>
 </div>
 
-{% if lista_usuarios %}
-
 <div class="container mt-3">
     <h1 class="text-center">Listar Usuários</h1>
     <table class="table table-striped">
@@ -38,15 +36,15 @@
                     <a class="btn btn-warning" href="/atualizar/{{ item.id }}">Atualizar</a>
                 </td>
             </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">
+                    Lista vazia
+                </td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
-{% else %}
-
-<div class="container mt-3">
-    <p class="text-center h2">Nenhum registro encontrado</p>
-</div>
-{% endif %}
 
 {% endblock content %}

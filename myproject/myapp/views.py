@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from myapp.models import Usuario
+from django.contrib.auth.decorators import login_required, permission_required
 
 
 # Create your views here.
@@ -10,7 +11,6 @@ def listar_usuarios(request):
         values = values.filter(nome__icontains=nome)
    
     return render(request, 'myapp/pages/listar.html',{"lista_usuarios":values})
-
 def criar_usuarios(request):
     nome = None
     if request.method == 'POST':

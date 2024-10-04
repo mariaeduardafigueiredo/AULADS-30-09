@@ -10,6 +10,10 @@ class Usuario(models.Model):
     nome = models.CharField(max_length=100)
     idade = models.IntegerField()
 
+class Meta:
+    permissions = (
+        ("remove_usuario", "Pode remover usúario"),
+    )
     def __str__(self):
         return f"Usuario: {self.nome}, Idade: {self.idade}"
     
