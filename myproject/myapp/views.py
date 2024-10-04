@@ -9,8 +9,8 @@ def listar_usuarios(request):
     nome = request.GET.get('nome')
     if nome:
         values = values.filter(nome__icontains=nome)
-   
     return render(request, 'myapp/pages/listar.html',{"lista_usuarios":values})
+@login_required
 def criar_usuarios(request):
     nome = None
     if request.method == 'POST':
@@ -20,7 +20,7 @@ def criar_usuarios(request):
             Usuario.objects.create(nome=nome, idade=idade)
             
     return render(request, 'myapp/pages/cadastrar.html', {"ultimo_nome":nome})
-
+@permission_required('myapp.remove_usuario', raise_exception=True)
 def deletar_usuarios(request, id):
     usuario = Usuario.objects.get(id=id)
     usuario.delete()
