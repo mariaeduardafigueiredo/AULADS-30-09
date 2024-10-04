@@ -121,7 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    "C:/Users/maria/Documents/Login_authentic/myproject/static",
 ]
 
 # Default primary key field type
