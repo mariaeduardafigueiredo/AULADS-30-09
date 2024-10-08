@@ -36,4 +36,4 @@ def login_usuario(request):
 # Função para logout (com indentação corrigida)
 def logout_usuario(request):
     logout(request)
-    return redirect('login_usuario')
+    return redirect(login_usuario)
