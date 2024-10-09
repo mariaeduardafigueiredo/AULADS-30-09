@@ -3,6 +3,10 @@ from myapp.models import Usuario
 from django.contrib.auth.decorators import login_required, permission_required
 
 
+def cadastrar_usuario(request):
+    # Lógica para cadastrar o usuário
+    return render(request, 'cadastrar.html')
+
 # Create your views here.
 def listar_usuarios(request):
     values = Usuario.objects.all()

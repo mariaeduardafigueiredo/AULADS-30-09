@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
-    <form action="{% url 'logar_usuarios' %}" method="post">
+    <h2>Login</h2>
+    <form method="post">
         {% csrf_token %}
-        <label for="username">username</label>
-        <input type="text" name="username" id="username">
-        <label for="senha">senha</label>
-        <input type="password" name="senha" id="senha">
-        <input type="submit" value="Cadastrar">
+        <label for="username">Usuário:</label>
+        <input type="text" name="username" id="username" required>
+        <br>
+        <label for="password">Senha:</label>
+        <input type="password" name="password" id="password" required>
+        <br>
+        <button type="submit">Entrar</button>
     </form>
-
-    {% if erro %}
-    <p>{{ erro }}</p>
-    {% endif %}
 </body>
 </html>
