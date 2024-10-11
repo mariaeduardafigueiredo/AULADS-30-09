@@ -4,7 +4,7 @@
             <a class="nav-link" href="/">Listar Usuários</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/adicionar">Cadastrar Usuário</a>
+            <a class="nav-link" href="/adicionar/">Cadastrar Usuário</a>
         </li>
     </ul>
     <ul class="navbar-nav ms-auto">
@@ -13,11 +13,11 @@
             <p class="nav-link">{{ request.user.username }}</p>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/login/login/">Login</a> <!-- Corrigi o link para logout -->
+            <a class="nav-link" href="/login/logout/">Sair</a> <!-- Corrigi o link para logout -->
         </li>
         {% else %}
         <li class="nav-item">
-            <a class="nav-link" href="/accounts/logout/">Sair</a>   <!-- Login aparece só quando não logado -->
+            <a class="nav-link" href="/login/">Login</a>  <!-- Login aparece só quando não logado -->
         </li>
         {% endif %}
     </ul>

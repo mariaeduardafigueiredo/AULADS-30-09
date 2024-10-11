@@ -14,7 +14,7 @@ def listar_usuarios(request):
     if nome:
         values = values.filter(nome__icontains=nome)
     return render(request, 'myapp/pages/listar.html',{"lista_usuarios":values})
-@login_required
+@login_required(login_url='/login/')
 def criar_usuarios(request):
     nome = None
     if request.method == 'POST':
